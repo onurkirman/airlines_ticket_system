@@ -15,11 +15,11 @@ public class Flight {
     @Column(name = "number")
     private String number;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "airline_company_id", referencedColumnName = "id")
     private AirlineCompany company;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "route_id", referencedColumnName = "id")
     private Route route;
 

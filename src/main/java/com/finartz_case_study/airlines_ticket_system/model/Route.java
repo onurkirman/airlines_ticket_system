@@ -11,11 +11,11 @@ public class Route {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "from_id", referencedColumnName = "id")
     private Airport from;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "to_id", referencedColumnName = "id")
     private Airport to;
 
@@ -24,9 +24,10 @@ public class Route {
 
     public Route() {}
 
-    public Route(Airport from, Airport to) {
+    public Route(Airport from, Airport to, String code) {
         this.from = from;
         this.to = to;
+        this.code = code;
     }
 
     public Long getId() {
