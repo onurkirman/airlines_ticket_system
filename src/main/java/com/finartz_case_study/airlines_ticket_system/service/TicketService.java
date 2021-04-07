@@ -27,9 +27,8 @@ public class TicketService {
 
     @Transactional
     public Ticket buyTicket(Ticket ticket) {
-        Flight flight = flightService.getFlightById(ticket.getFlight().getId());
+        Flight flight = flightService.getFlightById(ticket.getFlightId());
 
-        ticket.setFlight(flight);
         ticket.setPrice(flight.getPriceCharge());
         flight.setFullness(flight.getFullness() + 1);
 

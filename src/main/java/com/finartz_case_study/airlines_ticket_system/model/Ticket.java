@@ -11,9 +11,8 @@ public class Ticket {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "flight_id", referencedColumnName = "id")
-    private Flight flight;
+    @Column
+    private Long flightId;
 
     @Column
     private double price;
@@ -23,8 +22,8 @@ public class Ticket {
 
     public Ticket() {}
 
-    public Ticket(Flight flight, double price, String creditCardNumber) {
-        this.flight = flight;
+    public Ticket(Long flightId, double price, String creditCardNumber) {
+        this.flightId = flightId;
         this.price = price;
         this.creditCardNumber = creditCardNumber;
     }
@@ -37,12 +36,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public Flight getFlight() {
-        return flight;
+    public Long getFlightId() {
+        return flightId;
     }
 
-    public void setFlight(Flight flight) {
-        this.flight = flight;
+    public void setFlightId(Long flightId) {
+        this.flightId = flightId;
     }
 
     public double getPrice() {
